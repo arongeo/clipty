@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		774109FB2C41E8D300D9A344 /* cliptyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774109FA2C41E8D300D9A344 /* cliptyApp.swift */; };
-		774109FD2C41E8D300D9A344 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774109FC2C41E8D300D9A344 /* ContentView.swift */; };
 		774109FF2C41E8D400D9A344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774109FE2C41E8D400D9A344 /* Assets.xcassets */; };
 		77410A022C41E8D400D9A344 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77410A012C41E8D400D9A344 /* Preview Assets.xcassets */; };
 		77410A0D2C41E8D400D9A344 /* cliptyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A0C2C41E8D400D9A344 /* cliptyTests.swift */; };
 		77410A172C41E8D400D9A344 /* cliptyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A162C41E8D400D9A344 /* cliptyUITests.swift */; };
 		77410A192C41E8D400D9A344 /* cliptyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A182C41E8D400D9A344 /* cliptyUITestsLaunchTests.swift */; };
+		77410A262C41E95500D9A344 /* ClipboardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A252C41E95500D9A344 /* ClipboardHistoryView.swift */; };
+		77410A2B2C42054000D9A344 /* ClipboardHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A2A2C42054000D9A344 /* ClipboardHistoryItem.swift */; };
+		77410A2D2C42DADB00D9A344 /* ClipboardPoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A2C2C42DADB00D9A344 /* ClipboardPoller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		774109F72C41E8D300D9A344 /* clipty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clipty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		774109FA2C41E8D300D9A344 /* cliptyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cliptyApp.swift; sourceTree = "<group>"; };
-		774109FC2C41E8D300D9A344 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		774109FE2C41E8D400D9A344 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		77410A012C41E8D400D9A344 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		77410A032C41E8D400D9A344 /* clipty.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = clipty.entitlements; sourceTree = "<group>"; };
@@ -45,6 +46,9 @@
 		77410A122C41E8D400D9A344 /* cliptyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = cliptyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		77410A162C41E8D400D9A344 /* cliptyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cliptyUITests.swift; sourceTree = "<group>"; };
 		77410A182C41E8D400D9A344 /* cliptyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cliptyUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		77410A252C41E95500D9A344 /* ClipboardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryView.swift; sourceTree = "<group>"; };
+		77410A2A2C42054000D9A344 /* ClipboardHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryItem.swift; sourceTree = "<group>"; };
+		77410A2C2C42DADB00D9A344 /* ClipboardPoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardPoller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +100,9 @@
 			isa = PBXGroup;
 			children = (
 				774109FA2C41E8D300D9A344 /* cliptyApp.swift */,
-				774109FC2C41E8D300D9A344 /* ContentView.swift */,
+				77410A2C2C42DADB00D9A344 /* ClipboardPoller.swift */,
+				77410A252C41E95500D9A344 /* ClipboardHistoryView.swift */,
+				77410A2A2C42054000D9A344 /* ClipboardHistoryItem.swift */,
 				774109FE2C41E8D400D9A344 /* Assets.xcassets */,
 				77410A032C41E8D400D9A344 /* clipty.entitlements */,
 				77410A002C41E8D400D9A344 /* Preview Content */,
@@ -259,8 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				774109FD2C41E8D300D9A344 /* ContentView.swift in Sources */,
+				77410A262C41E95500D9A344 /* ClipboardHistoryView.swift in Sources */,
 				774109FB2C41E8D300D9A344 /* cliptyApp.swift in Sources */,
+				77410A2D2C42DADB00D9A344 /* ClipboardPoller.swift in Sources */,
+				77410A2B2C42054000D9A344 /* ClipboardHistoryItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,12 +437,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = clipty;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arongeo.clipty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -456,12 +466,14 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = clipty;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.arongeo.clipty;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
