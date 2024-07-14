@@ -11,7 +11,7 @@ import Foundation
 
 @main
 struct cliptyApp: App {
-    @ObservedObject var clipboardPoller: ClipboardPoller
+    @ObservedObject var clipboardHandler: ClipboardHandler
     
     var container: ModelContainer
     
@@ -22,20 +22,20 @@ struct cliptyApp: App {
             fatalError("Couldn't create/use ModelContainer")
         }
         
-        self.clipboardPoller = ClipboardPoller(context: self.container.mainContext)
+        self.clipboardHandler = ClipboardHandler(context: self.container.mainContext)
     }
 
     var body: some Scene {
         let _ = NSApplication.shared.setActivationPolicy(.accessory)
         
         MenuBarExtra() {
-            ClipboardHistoryView()
+            ClipboardHistoryView(clipboardHandler: self.clipboardHandler)
                 .modelContainer(self.container)
         } label: {
-            let clipboardTrimmed = self.clipboardPoller.currClipboardText.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "")
+            let clipboardTrimmed = self.clipboardHandler.currClipboardText.trimmingCharacters(in: .whitespacesAndNewlines).replacingOccurrences(of: " ", with: "")
             
             Text(10 < clipboardTrimmed.count || clipboardTrimmed.isEmpty ? "" : " " + clipboardTrimmed)
-            Image(systemName: self.clipboardPoller.isClipboardEmpty ? "clipboard" : "clipboard.fill")
+            Image(systemName: self.clipboardHandler.isClipboardEmpty ? "clipboard" : "clipboard.fill")
         }.menuBarExtraStyle(.window)
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7709E5892C43D7AA0030EB1F /* ClipboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7709E5882C43D7AA0030EB1F /* ClipboardHandler.swift */; };
 		774109FB2C41E8D300D9A344 /* cliptyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 774109FA2C41E8D300D9A344 /* cliptyApp.swift */; };
 		774109FF2C41E8D400D9A344 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 774109FE2C41E8D400D9A344 /* Assets.xcassets */; };
 		77410A022C41E8D400D9A344 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 77410A012C41E8D400D9A344 /* Preview Assets.xcassets */; };
@@ -15,7 +16,6 @@
 		77410A192C41E8D400D9A344 /* cliptyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A182C41E8D400D9A344 /* cliptyUITestsLaunchTests.swift */; };
 		77410A262C41E95500D9A344 /* ClipboardHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A252C41E95500D9A344 /* ClipboardHistoryView.swift */; };
 		77410A2B2C42054000D9A344 /* ClipboardHistoryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A2A2C42054000D9A344 /* ClipboardHistoryItem.swift */; };
-		77410A2D2C42DADB00D9A344 /* ClipboardPoller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77410A2C2C42DADB00D9A344 /* ClipboardPoller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7709E5882C43D7AA0030EB1F /* ClipboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHandler.swift; sourceTree = "<group>"; };
 		774109F72C41E8D300D9A344 /* clipty.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = clipty.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		774109FA2C41E8D300D9A344 /* cliptyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cliptyApp.swift; sourceTree = "<group>"; };
 		774109FE2C41E8D400D9A344 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -48,7 +49,6 @@
 		77410A182C41E8D400D9A344 /* cliptyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = cliptyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		77410A252C41E95500D9A344 /* ClipboardHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryView.swift; sourceTree = "<group>"; };
 		77410A2A2C42054000D9A344 /* ClipboardHistoryItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardHistoryItem.swift; sourceTree = "<group>"; };
-		77410A2C2C42DADB00D9A344 /* ClipboardPoller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClipboardPoller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				774109FA2C41E8D300D9A344 /* cliptyApp.swift */,
-				77410A2C2C42DADB00D9A344 /* ClipboardPoller.swift */,
+				7709E5882C43D7AA0030EB1F /* ClipboardHandler.swift */,
 				77410A252C41E95500D9A344 /* ClipboardHistoryView.swift */,
 				77410A2A2C42054000D9A344 /* ClipboardHistoryItem.swift */,
 				774109FE2C41E8D400D9A344 /* Assets.xcassets */,
@@ -267,8 +267,8 @@
 			files = (
 				77410A262C41E95500D9A344 /* ClipboardHistoryView.swift in Sources */,
 				774109FB2C41E8D300D9A344 /* cliptyApp.swift in Sources */,
-				77410A2D2C42DADB00D9A344 /* ClipboardPoller.swift in Sources */,
 				77410A2B2C42054000D9A344 /* ClipboardHistoryItem.swift in Sources */,
+				7709E5892C43D7AA0030EB1F /* ClipboardHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

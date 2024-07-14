@@ -12,12 +12,17 @@ struct ClipboardHistoryView: View {
     @Environment(\.modelContext) private var context
     @Query private var clipboardHistory: [ClipboardHistoryItem]
     
+    var clipboardHandler: ClipboardHandler
+    
+    init(clipboardHandler: ClipboardHandler) {
+        self.clipboardHandler = clipboardHandler
+    }
+    
     var body: some View {
         VStack {
             ForEach (self.clipboardHistory) { item in
                 Button(item.text, action: {
-                    NSPasteboard.general.clearContents()
-                    NSPasteboard.general.setString(item.text, forType: .string)
+                    self.clipboardHandler.copyToClipboard(str: item.text)
                 })
             }
         }
