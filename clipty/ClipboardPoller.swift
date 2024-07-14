@@ -7,13 +7,17 @@
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 class ClipboardPoller : ObservableObject {
     var currClipboardCount: Int = 0
     @Published var currClipboardText: String = ""
     @Published var isClipboardEmpty: Bool = true
     
-    init() {
+    var context: ModelContext
+    
+    init(context: ModelContext) {
+        self.context = context
         self.parseClipboard()
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { _ in self.tryUpdateClipboard()})
     }
@@ -35,7 +39,7 @@ class ClipboardPoller : ObservableObject {
             currClipboardText != NSPasteboard.general.string(forType: .string) {
             self.parseClipboard()
             
-            // TODO: Add to clipboard history
+            self.context.insert(ClipboardHistoryItem(text: self.currClipboardText))
         }
     }
     

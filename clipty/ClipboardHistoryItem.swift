@@ -10,11 +10,11 @@ import SwiftData
 
 @Model
 class ClipboardHistoryItem {
-    var item: String
+    var text: String
     var date: Date
     
-    init(item: String) {
-        self.item = item
+    init(text: String) {
+        self.text = text
         self.date = Date.now
     }
 }
