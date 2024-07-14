@@ -39,8 +39,9 @@ class ClipboardPoller : ObservableObject {
             currClipboardText != NSPasteboard.general.string(forType: .string) {
             self.parseClipboard()
             
-            self.context.insert(ClipboardHistoryItem(text: self.currClipboardText))
+            if !self.isClipboardEmpty {
+                self.context.insert(ClipboardHistoryItem(text: self.currClipboardText))
+            }
         }
     }
-    
 }
