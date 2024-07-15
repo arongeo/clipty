@@ -14,11 +14,18 @@ class ClipboardHandler : ObservableObject {
     @Published var currClipboardText: String = ""
     @Published var isClipboardEmpty: Bool = true
     
+    var blacklistedBundleIDs: [String]
+    
     var context: ModelContext
     
     init(context: ModelContext) {
+        self.blacklistedBundleIDs = ["com.apple.systempreferences", "com.apple.keychainaccess"]
         self.context = context
-        self.parseClipboard()
+        
+        self.currClipboardCount = NSPasteboard.general.changeCount
+        self.currClipboardText = ""
+        self.isClipboardEmpty = NSPasteboard.general.string(forType: .string) == nil
+        
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { _ in self.tryUpdateClipboard()})
     }
     
@@ -37,6 +44,24 @@ class ClipboardHandler : ObservableObject {
     func tryUpdateClipboard() {
         if currClipboardCount != NSPasteboard.general.changeCount &&
             currClipboardText != NSPasteboard.general.string(forType: .string) {
+            if let unwrappedApp = NSWorkspace.shared.frontmostApplication {
+                if let unwrappedBundleID = unwrappedApp.bundleIdentifier {
+                    if self.blacklistedBundleIDs.contains(unwrappedBundleID) {
+                        // We don't proceed, because it's most likely something secret
+                        
+                        self.currClipboardText = ""
+                        self.currClipboardCount = NSPasteboard.general.changeCount
+                        self.isClipboardEmpty = false
+                        
+                        return
+                    }
+                } else {
+                    print("No bundle ID?")
+                }
+            } else {
+                print("I really don't know how this happened")
+            }
+            
             self.parseClipboard()
             
             if !self.isClipboardEmpty {

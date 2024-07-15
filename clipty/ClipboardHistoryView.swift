@@ -35,5 +35,5 @@ struct ClipboardHistoryView: View {
             
             NSPasteboard.general.clearContents()
         })
-        }
+    }
 }
