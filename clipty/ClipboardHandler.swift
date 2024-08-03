@@ -12,6 +12,7 @@ import SwiftData
 class ClipboardHandler : ObservableObject {
     var currClipboardCount: Int = 0
     @Published var currClipboardText: String = ""
+    @Published var currClipboardDateTime: Date = Date.now
     @Published var isClipboardEmpty: Bool = true
     
     var blacklistedBundleIDs: [String]
@@ -25,6 +26,7 @@ class ClipboardHandler : ObservableObject {
         self.currClipboardCount = NSPasteboard.general.changeCount
         self.currClipboardText = ""
         self.isClipboardEmpty = NSPasteboard.general.string(forType: .string) == nil
+        self.currClipboardDateTime = Date.now
         
         Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true, block: { _ in self.tryUpdateClipboard()})
     }
@@ -37,6 +39,7 @@ class ClipboardHandler : ObservableObject {
         } else {
             ""
         }
+        self.currClipboardDateTime = Date.now
         
         self.isClipboardEmpty = NSPasteboard.general.string(forType: .string) == nil
     }
@@ -72,6 +75,7 @@ class ClipboardHandler : ObservableObject {
     
     public func clearClipboard() {
         NSPasteboard.general.clearContents()
+        self.currClipboardDateTime = Date.now
     }
     
     public func copyToClipboard(str: String) {
@@ -80,6 +84,9 @@ class ClipboardHandler : ObservableObject {
         NSPasteboard.general.setString(str, forType: .string)
         self.currClipboardCount = NSPasteboard.general.changeCount
         self.currClipboardText = str
+        self.currClipboardDateTime = Date.now
+        
+        self.isClipboardEmpty = false
     }
 }
 
