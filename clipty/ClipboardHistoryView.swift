@@ -63,13 +63,19 @@ struct ClipboardHistoryView: View {
                     }
                 }.padding(.horizontal)
             }
-            Button("Clear History", action: {
-                do {
-                    try context.delete(model: ClipboardHistoryItem.self)
-                } catch {
-                    print("Couldn't clear DB")
-                }
-            }).padding(.bottom)
+            HStack {
+                Button("Clear History", action: {
+                    do {
+                        try context.delete(model: ClipboardHistoryItem.self)
+                    } catch {
+                        print("Couldn't clear DB")
+                    }
+                }).padding(.bottom)
+                
+                Button("Exit", action: {
+                    exit(0)
+                }).padding(.bottom)
+            }
         }
     }
 }
